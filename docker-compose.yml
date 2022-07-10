@@ -1,0 +1,44 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+#      - MYSQL_USERNAME=${MYSQL_USERNAME}
+#      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+#      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+#      - MYSQL_DATABASE=db_name
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql:cached
+      - ./logs:/var/log/mysql:cached
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - "./data/redis:/data"
+
+  web:
+    tty: true #コンテナ上でbinding.pryするために必要
+    stdin_open: true #コンテナ上でbinding.pryするために必要
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+
+    volumes:
+      - .:/myapp #ローカルのディレクトリをコンテナ上にマウント
+      - bundle:/usr/local/bundle #bundle installした後buildし直さなくてよくなる
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  bundle:
