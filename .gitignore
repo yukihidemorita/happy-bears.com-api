@@ -23,6 +23,7 @@
 .byebug_history
 /volumes/*
 /data/redis/*.rdb
+/data/redis/*.aof
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
