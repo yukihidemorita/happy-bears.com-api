@@ -6,7 +6,8 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
 gem 'mysql2', '~> 0.5'
-gem "kredis"
+gem 'redis'
+gem 'redis-rails'
 gem 'puma', '~> 5.0'
 
 # Setting sentry

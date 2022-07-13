@@ -20,6 +20,7 @@ services:
 
   redis:
     image: redis:latest
+    command: redis-server --appendonly yes
     ports:
       - "6379:6379"
     volumes:
@@ -39,6 +40,8 @@ services:
     depends_on:
       - db
       - redis
-
+    environment:
+      REDIS_HOST: redis
+      REDIS_URL: redis://redis:6379
 volumes:
   bundle:
