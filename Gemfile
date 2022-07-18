@@ -48,12 +48,11 @@ group :development, :test do
   gem 'listen', '~> 3.3'
   gem 'spring'
   gem 'overcommit' # https://github.com/sds/overcommit
-end
 
-group :development, :test do
   gem 'byebug', platform: :mri # https://github.com/deivid-rodriguez/byebug
   gem 'faker' # https://github.com/faker-ruby/faker
   gem "factory_bot_rails" # https://github.com/thoughtbot/factory_bot_rails
+  gem 'seed-fu', '~> 2.3'
 
   gem 'rubocop'
   gem 'rubocop-performance' # https://github.com/rubocop/rubocop-performance

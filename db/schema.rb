@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_16_162212) do
   create_table "abm_codes", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "code"
     t.string "uri"
@@ -20004,6 +20004,11 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil
     t.datetime "deleted_at", precision: nil
     t.index ["name"], name: "index_stations_on_name"
+  end
+
+  create_table "tables", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taiwa_records", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|

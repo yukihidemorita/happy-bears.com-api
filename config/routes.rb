@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         resources :recommends, only: [:index]
       end
       namespace :order do
-        resources :questionnaires, only: [:index]
+        resources :questionnaires, only: [:index, :show]
         resources :services, only: [:create]
         resources :available_dates, only: [:index]
       end
