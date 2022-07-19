@@ -48,6 +48,7 @@ https://pikawaka.com/rails/jbuilder
 ```
 $ bundle exec rails g controller api/v1/posts
 ```
+
 2. モデルを作成(migrationは作成しない)
 ```
 $ bundle exec rails g model posts --skip-migration
@@ -61,12 +62,13 @@ $ bundle exec rails g jbuilder api/v1/posts
 4. 必要があればseedを作成する
 実行するseedデータの順番を制御するため、ファイル名の先頭に番号を振ることに注意
 参考: https://techtechmedia.com/seed_fu-rails/
-
 ```
 $ touch db/fixtures/development/01_user.rb
 ```
 
-routes に追記する
-動作するように記述する
-rspec を書く
+5. routes にルーティングを追記する
+
+6. 動作するように処理を記述する 
+
+7. rspec を書く
 
